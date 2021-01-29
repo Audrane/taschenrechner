@@ -1,0 +1,89 @@
+Berechnung.ts
+var a=  (<HTMLSelectElement>document.getElementById("result")).value;
+
+
+var xhr=new XMLHttpRequest();
+xhr.open("POST",'/Calculator/add',true);
+xhr.setRequestHeader("Content-type","application/json");
+xhr.onreadystatechange=function () {
+    if(xhr.readyState==4 && xhr.status==200){
+        alert(xhr.response);
+    }
+
+}
+var data=JSON.stringify({a});
+xhr.send(data);
+
+
+
+//Get->select,POst->insert,put-<update
+//senden von daten an server
+
+-------------------------------------
+Important http test
+
+https://developer.nrel.gov/docs/solar/pvdaq-v3/data/
+---------------------------------------------------------
+SErver.ts
+
+import * as express from "express";
+
+let __dirname;
+
+const router: express.Express = express();
+router.listen(9090);
+router.use(express.urlencoded({extended: false}));
+router.use(express.json());
+
+//die route wird in html benötigt
+router.use("/html", express.static(__dirname + "/html"));
+router.use("/css", express.static(__dirname + "/css"));
+router.use("/scripts", express.static(__dirname + "/scripts"));
+
+router.get("/", (req: express.Request, res: express.Response) => {
+    res.status(200);
+    res.sendfile(__dirname + "/html/index.html");
+});
+router.post("/Calculator/add", (req: express.Request, res: express.Response) => {
+// wann req.query wann req.body?
+
+    function f(val)
+    {
+        (<HTMLSelectElement>document.getElementById("result")).value+=val;
+    }
+
+    function solve()
+    {
+        //alert("hallo");
+        let x = (<HTMLInputElement>document.getElementById("result")).value;
+        let y = eval(x);
+        (<HTMLInputElement>document.getElementById("result")).value = y;
+
+    }
+
+
+    function back() {
+        var value = (<HTMLInputElement>document.getElementById("result")).value;
+        (<HTMLInputElement>document.getElementById("result")).value = value.substr(0, value.length - 1);
+    }
+
+    try {
+
+        alert("drin");
+        console.log("Im inside the method");
+        let nummer: number = Number(req.query.data);
+
+        res.status(200);
+        var a = (<HTMLSelectElement>document.getElementById("result")).value;
+        res.json({
+            data: eval(a),
+        });
+
+
+    } catch (e) {
+        console.log(e);
+        res.status(404);
+        res.send("Etwas ist schiefgelaufen in dem Server.\nSiehe bitte Log-Infos in Server-Konsole")
+    }
+
+});

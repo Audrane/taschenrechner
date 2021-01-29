@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <title>Title</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="../scripts/berechnung.js"></script>
+    <script type="text/javascript" src="Servers.js"></script>
+</head>
+<body>
+
+<h1>Taschenrechner</h1>
+
+
+<table border="1">
+
+    <td colspan="4" > <input type="text"  id="result" placeholder="0" disabled/></td>
+
+    <tr>
+        <div>
+            <td><input type="radio"/>RAD DEG GRAD</td>
+            <td><input type="button" id="un" value="↓" onclick="result.value +='↓'"/></td>
+            <td><input type="button" id="deux" value="←" onclick="back()"/></td>
+            <td colspan="3"> <input type="button" id="cls" value="Cls" onclick="result.value =''"/></td>
+        </div>
+    </tr>
+    <br>
+    <tr>
+
+        <div id="trois">
+            <td>   <input type="button" value="√" onclick="OperateOne(10)"></td>
+            <td>   <input type="button" value="root" onclick="OperateOne(10)"></td>
+            <td>  <input type="button" value="ln"></td>
+            <td>  <input type="button" value="log" onclick="OperateOne(11)"></td>
+            <td>  <input type="button" value="MS"></td>'
+            <td>  <input type="button" value="MR" onclick="result.value=''"/></td>
+        </div>
+    </tr>
+    <br>
+    <div id="troiss">
+        <td><input type="button" value="x^2" onclick="OperateOne(16)"></td>
+        <td>   <input type="button" value="x^y" onclick="OperateOne(18)"></td>
+        <td>  <input type="button" value="e^x" onclick="OperateOne(1)"></td>
+        <td>   <input type="button" value="10^x" onclick="OperateOne(0)"></td>
+        <td>  <input type="button" value="(" onclick="f('(')"></td>
+        <td>  <input type="button" value=")" onclick="f(')')" ><br></td>
+    </div>
+
+    </tr>
+    <tr>
+
+        <div id="quatre">
+            <td><input type="button" value="1/x" onclick="OperateOne(13)"> </td>
+            <td>  <input type="button" value="x!" id="quatr" class="quat" onclick="OperateOne(2)">
+            <td>  <input type="button" value="π" onclick="f('3.1415')"></td>
+            <td> <input type="button" value="±" onclick="OperateOne(14)"></td>
+            <td> <input type="button" value="%" onclick="OperateOne(15  )"></td>
+            <td>  <input type="button" value="÷" id="divise" onclick="f('/')"></td><br>
+        </div>
+    </tr>
+
+
+    <tr>
+
+        <div id="cinq">
+            <td><input type="button" value="sin" onclick="OperateOne(3)"></td>
+            <td>  <input type="button" value="asin" onclick="OperateOne(6)"></td>
+
+            <td>  <input type="button" value="7" onclick="f('7')"></td>
+            <td> <input type="button" value="8" onclick="f('8')"></td>
+            <td>  <input type="button" value="9" onclick="f('9')"></td>
+            <td><input type="button" value="*" onclick="f('*')"> </td><br>
+        </div>
+    </tr>
+    <tr>
+
+        <div id="six">
+            <td><input type="button" value="cos" onclick="OperateOne(4)"></td>
+            <td>  <input type="button" value="acos" onclick="OperateOne(7)"></td>
+
+
+            <td> <input type="button" value="4" onclick="f('4')"></td>
+            <td> <input type="button" value="5" onclick="f('5')"></td>
+            <td> <input type="button" value="6" onclick="f('6')"></td>
+
+            <td>  <input type="button" value="-" onclick="f('-')"></td><br>
+        </div>
+
+    </tr>
+
+    <tr>
+
+        <div id="sept">
+            <td><input type="button" value="tan" onclick="OperateOne(5)"></td>
+            <td> <input type="button" value="atan" onclick="OperateOne(8)"></td>
+
+            <td> <input type="button" value="1" onclick="f('1')"></td>
+            <td>  <input type="button" value="2" onclick="f('2')"></td>
+            <td>  <input type="button" value="3" onclick="f('3')"></td>
+            <td> <input type="button" value="+" onclick="f('+')"></td><br>
+        </div>
+
+    </tr>
+    <tr>
+
+        <div id="huit">
+            <td><input type="button" value="e" onclick=""></td>
+            <td>  <input type="button" value="ppm" onclick="OperateOne(9)"></td>
+
+            <td colspan="2">  <input type="button" value="0" onclick="f('0')"></td>
+            <td> <input type="button" value="." onclick="f('.')"></td>
+            <td> <input type="button"  id="egal"value="=" onclick="solve()"></td>
+
+        </div>
+
+        <span type="text" id="exponent">Geben Sie die Exponente ein</span>
+    </tr>
+</table>
+
+</body>
+</html>

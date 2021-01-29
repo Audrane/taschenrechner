@@ -1,0 +1,5 @@
+Es sieht alles schon mal befriedigend aus bis auf eine Kleinigkeit, die nachzubessern ist. Also die erste Zeile nach der Anzeige
+passt visuell nicht so richtig mit dem Modell zusammen, die Buttons müssen den gesamten Platzhalter des Obersteuelementes einnehmen genauso
+wie du bei den anderen unteren Buttons gemacht hast. Darüber hinaus ist Deg-Button ein Radio-Button passend mit Rand-Button. 
+Du kannst, wenn du noch Zeit hast, die Anmerkungen abarbeiten, aber wie oben gesagt, es ist schon mal zufriedenstellend und du kannst damit weiterarbeiten.
+Wichtig aber ist, dass all die Funktionalitäten implementierst.
